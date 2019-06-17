@@ -9,8 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ChooseClass"></activity>
-        <activity android:name=".NavigationDrawer"  android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".NavigationDrawerTwelve"  android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ChooseClass" />
+        <activity
+            android:name=".NavigationDrawer"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".ForgetPassword" />
         <activity android:name=".MainActivity">

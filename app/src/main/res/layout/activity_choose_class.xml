@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ChooseClass">
+    tools:context=".ChooseClass"
+    android:background="@drawable/login_bg"
+    android:alpha="0.9"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,7 +21,9 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:text="CHOOSE CLASS"
-            android:textSize="30sp" />
+            android:textSize="40sp"
+            android:textFontWeight="BOLD"
+            />
     </RelativeLayout>
 
     <GridLayout

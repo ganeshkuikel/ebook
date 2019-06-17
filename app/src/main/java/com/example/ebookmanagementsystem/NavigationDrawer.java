@@ -1,5 +1,8 @@
 package com.example.ebookmanagementsystem;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -31,7 +34,7 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         drawerToggle.syncState();
         if (savedInstanceState==null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new com.example.ebookmanagementsystem.HomeFragment()).commit();
+                    new com.example.ebookmanagementsystem.Fragments.HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_home);
         }
         }
@@ -42,7 +45,7 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         switch (menuItem.getItemId()){
             case R.id.nav_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new com.example.ebookmanagementsystem.HomeFragment()).commit();
+                        new com.example.ebookmanagementsystem.Fragments.HomeFragment()).commit();
                 break;
             case R.id.rate:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -64,6 +67,9 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new com.example.ebookmanagementsystem.Fragments.MaterialsFragment()).commit();
                 break;
+            case R.id.logout:
+                logoutaction();
+                break;
 
 
         }
@@ -80,5 +86,24 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         }
 
 
+    }
+
+    public void logoutaction(){
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure to logout?")
+                .setCancelable(true).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+            }
+        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alertDialog=builder.create();
+        alertDialog.show();
     }
 }
